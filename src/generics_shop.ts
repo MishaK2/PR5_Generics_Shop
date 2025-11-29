@@ -1,7 +1,3 @@
-// -----------------------------
-// Крок 1. Типи для товарів
-// -----------------------------
-
 export type BaseProduct = {
     id: number;
     name: string;
@@ -26,10 +22,6 @@ export type Book = BaseProduct & {
     pages: number;
 };
 
-// -----------------------------
-// Крок 2. Генеричні функції
-// -----------------------------
-
 export const findProduct = <T extends BaseProduct>(
     products: T[],
     id: number
@@ -51,10 +43,6 @@ export const filterByPrice = <T extends BaseProduct>(
 
     return products.filter((p) => p.price <= maxPrice);
 };
-
-// -----------------------------
-// Крок 3. Робота з кошиком
-// -----------------------------
 
 export type CartItem<T> = {
     product: T;
@@ -96,10 +84,6 @@ export const calculateTotal = <T extends BaseProduct>(
     );
 };
 
-// -----------------------------
-// Крок 4. Демонстрація роботи
-// -----------------------------
-
 const electronics: Electronics[] = [
     {
         id: 1,
@@ -139,7 +123,6 @@ const books: Book[] = [
     }
 ];
 
-// Тестування
 const phone = findProduct(electronics, 1);
 console.log("Знайдений товар:", phone);
 
